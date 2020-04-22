@@ -1,6 +1,8 @@
-# Quasar App (test)
-
-A Quasar Framework app
+# Quasar CLI Installation
+Node.js >= 8.9.0 is required.
+```bash
+npm install -g @quasar/cli
+```
 
 ## Install the dependencies
 ```bash

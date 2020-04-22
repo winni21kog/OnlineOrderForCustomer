@@ -1,11 +1,15 @@
 <template>
   <q-layout view="hHh Lpr lFf">
-    <q-header elevated>
+    <q-header elevated v-if="this.$store.state.shop.qheader">
       <q-toolbar>
         <q-toolbar-title class="q-ml-md">
-          <q-btn flat to="/">NiDin</q-btn>
-          <q-btn flat to="/">訂餐</q-btn>
-          <q-btn flat>購物車</q-btn>
+          <q-btn flat to="/">你訂</q-btn>
+          <q-btn flat to="/">
+            <q-icon name="local_dining"></q-icon>訂餐
+          </q-btn>
+          <q-btn flat to="/Cart">
+            <q-icon name="shopping_cart"></q-icon>購物車
+          </q-btn>
         </q-toolbar-title>
         <div class="row justify-end">
           <q-btn flat rounded>登入</q-btn>
@@ -13,15 +17,6 @@
         </div>
       </q-toolbar>
     </q-header>
-
-    <!-- <q-drawer v-model="leftDrawerOpen" show-if-above bordered content-class="bg-grey-1">
-      <q-list>
-        <q-item-label header class="text-grey-8">常用功能</q-item-label>
-        <Menu v-for="m in menu" :key="m.title" v-bind="m"></Menu>
-        <EssentialLink v-for="link in essentialLinks" :key="link.title" v-bind="link" />
-      </q-list>
-    </q-drawer>-->
-
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -29,51 +24,16 @@
 </template>
 
 <script>
-import EssentialLink from "components/EssentialLink";
-import Menu from "components/Menu";
+// import EssentialLink from "components/EssentialLink";
 export default {
   name: "MainLayout",
 
-  components: {
-    // EssentialLink,
-    // Menu
-  },
+  components: {},
 
   data() {
     return {
       leftDrawerOpen: false,
-      menu: [
-        {
-          title: "首頁",
-          caption: "查看可訂購店家",
-          icon: "eco",
-          link: ""
-        },
-        {
-          title: "帳號管理",
-          caption: "帳號資料修改",
-          icon: "eco",
-          link: ""
-        },
-        {
-          title: "角色管理",
-          caption: "角色?",
-          icon: "eco",
-          link: ""
-        },
-        {
-          title: "店家管理",
-          caption: "店家資料修改",
-          icon: "eco",
-          link: ""
-        },
-        {
-          title: "帳號與店家關聯",
-          caption: "綁定店家",
-          icon: "eco",
-          link: ""
-        }
-      ],
+
       essentialLinks: [
         {
           title: "Docs",

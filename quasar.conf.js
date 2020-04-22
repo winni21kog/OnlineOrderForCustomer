@@ -1,12 +1,13 @@
 // Configuration for your app
 // https://quasar.dev/quasar-cli/quasar-conf-js
 
-module.exports = function(ctx) {
+module.exports = function (ctx) {
   return {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
     // https://quasar.dev/quasar-cli/cli-documentation/boot-files
-    boot: [],
+    boot: ['axios',
+      'recaptcha'],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
     css: ["app.sass"],
@@ -43,15 +44,16 @@ module.exports = function(ctx) {
         "QCarousel",
         "QCarouselSlide",
         "QCarouselControl",
+        'QDialog',
         "QInput",
         "QCard",
         "QCardSection",
         "QCardActions"
       ],
-      directives: [],
+      directives: ['ClosePopup'],
 
       // Quasar plugins
-      plugins: []
+      plugins: ["Dialog", 'Loading']
     },
 
     // https://quasar.dev/quasar-cli/cli-documentation/supporting-ie
@@ -97,6 +99,7 @@ module.exports = function(ctx) {
     ssr: {
       pwa: false
     },
+    preFetch: true,
 
     // https://quasar.dev/quasar-cli/developing-pwa/configuring-pwa
     pwa: {
